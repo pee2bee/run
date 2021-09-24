@@ -9,7 +9,7 @@ class SessionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('gust',[
+        $this->middleware('guest',[
             'only'=>['create']
         ]);
     }
@@ -47,5 +47,5 @@ class SessionsController extends Controller
     }
 
 
-    
+
 }

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 这些全部都会顺序调用，调用中间件是进入中间件类的handle方法进行处理
-        */
+*/
 Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
