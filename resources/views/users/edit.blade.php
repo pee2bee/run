@@ -28,7 +28,7 @@
 
         <div class="form-group">
           <label for="email">邮箱：</label>
-          <input type="text" name="email" class="form-control" value="{{ $user->eamil}}" disabled>
+          <input type="text" name="email" class="form-control" value="{{ $user->email}}" disabled>
         </div>
 
         <div class="form-group">
