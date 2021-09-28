@@ -51,9 +51,12 @@ Route::delete('logout','SessionsController@destroy')->name('logout');
 Route::get('signup/confirm/{token}','UsersController@confirmEmail')->name('confirm_email');
 
 
+Route::get('password/reset', 'PasswordController@showLinkRequestForm')->name('password.request');//填写Email的表单
 
+Route::post('password/email','PasswordController@sendResetLinkEmail')->name('password.email');//处理表单提交，成功的话就发送邮件，附带Token的链接
 
-
+Route::get('password/reset/{token}','PasswordController@showResetForm')->name('password.reset');//更新密码的表单，包括token
+Route::post('password/reset','PasswordController@reset')->name('password.update');//对提交够来的token和email数据尽心配对，正确的话更新密码
 
 
 

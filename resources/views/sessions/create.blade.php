@@ -21,6 +21,7 @@
         <div class="form-group">
           <label for="password">密码:</label>
           <input for="password" name="password" class="form-control" value="{{old('password')}}">
+          <label for="password"><a href="{{route('password.request')}}">忘记密码</a></label>
         </div>
 
         <div class="form-group">
