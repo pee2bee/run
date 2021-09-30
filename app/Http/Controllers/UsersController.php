@@ -19,7 +19,7 @@ class UsersController extends Controller
             'only'=>['create']
         ]);
 
-        //限流，一个小时内只能提交10次请求
+        //限流，一个小时内只能提交10次请求,：然后是参数
         $this -> middleware('throttle:10,60',[
             'only' => ['store']
         ]);
@@ -110,13 +110,11 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'summer@example.com';
-        $name = 'Summer';
         $to = $user->email;
         $subject = "感谢注册 run 应用！请确认你的邮箱。";
 
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-            $message->from($from, $name)->to($to)->subject($subject);
+        Mail::send($view, $data, function ($message) use ( $to, $subject) {
+            $message->to($to)->subject($subject);
         });
     }
 
