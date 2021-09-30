@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',//将UTC伦敦时间改为PRC中国时间 people republic country
 
     /*
     |--------------------------------------------------------------------------
