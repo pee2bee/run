@@ -64,6 +64,11 @@ public function gravatar($size = '100')
 }
 
 
+    public function statuses ()
+    {
+        return $this ->hasMany(Status::class);
+    }
+
 
 
 }
