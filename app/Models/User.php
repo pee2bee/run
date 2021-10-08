@@ -69,6 +69,11 @@ public function gravatar($size = '100')
         return $this ->hasMany(Status::class);
     }
 
+    public function feed()
+    {
+        return $this->statuses()
+                    ->orderBy('created_at','desc');
+    }
 
 
 }
