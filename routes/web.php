@@ -67,13 +67,13 @@ Route::get('/users/{user}/followings',
 Route::get('/users/{user}/followers','UsersController@followers','UserController@followers')->name('users.followers');//用户粉丝列表（被谁关注的表单）的路由
 
 
+Route::post('/users/follower/{user}','FollowersController@store')->name('followers.store');//关注功能
+Route::delete('/users/follower/{user}','FollowersController@destroy')->name('followers.destroy');//取消关注
 
 
 
-
-
-
-
+//五种请求方式 get post put  patch  delete
+//查询用get 新增用post 更新用put 或者patch  删除用delete
 /*
 |--------------------------------------------------------------------------
 | Web Routes
