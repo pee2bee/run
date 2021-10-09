@@ -138,6 +138,24 @@ class UsersController extends Controller
     }
 
 
+    //显示用户关注的人的列表
+    public function followings(User $user)
+    {
+        //获取所有关注对象的数据$users,并分页显示
+        $users = $user->followings()->paginate(30);
+        //设计标题
+        $title = $user->name.'关注的人';
+        //返回统一视图users.show_follow，并加密传输关注的人和标题数据
+        return view('users.show_follow',compact('users','title'));
+    }
+
+    //显示关注用户的粉丝的列表，逻辑跟以上followings方法差不多，并且共用一个视图users.show_follow
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $title = $user->name.'的粉丝';
+        return view('users.show_follow',compact('users','title'));
+    }
 
 }
 

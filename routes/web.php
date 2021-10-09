@@ -62,6 +62,10 @@ Route::post('password/reset','PasswordController@reset')->name('password.update'
 Route::resource('statuses','StatusesController',['only'=>['store','destroy']]);//resource包括增删改查这四个路由，但这里只需要微博的创建和删除两个动作
 
 
+Route::get('/users/{user}/followings',
+'UsersController@followings')->name('users.followings');//用户关注者列表（关注了谁的表单）的路由
+Route::get('/users/{user}/followers','UsersController@followers','UserController@followers')->name('users.followers');//用户粉丝列表（被谁关注的表单）的路由
+
 
 
 
