@@ -94,7 +94,7 @@ public function gravatar($size = '100')
     public function follow($user_ids)
     {
         //判断user_id是否是一个数组，如果不是，就用compact方法转化为数组
-        if(! is_array(user_ids)){
+        if(! is_array($user_ids)){
             $user_ids = compact('user_ids');
         }
         //用sync方法将对象加入关注列表

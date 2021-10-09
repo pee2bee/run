@@ -9,8 +9,8 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+     * 设定假数据的生成顺序
      *
-     * @return void
      */
     public function run()
     {
@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
         $this->call(StatusesTableSeeder::class);
+        $this->call(FollowersTableSeeder::class);
 
         Model::reguard();
     }
