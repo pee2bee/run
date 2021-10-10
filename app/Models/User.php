@@ -69,10 +69,19 @@ public function gravatar($size = '100')
         return $this ->hasMany(Status::class);
     }
 
+    //feed动态流方法，显示当前登录用户的个人微博状态，和关注人的微博动态数据
     public function feed()
     {
-        return $this->statuses()
-                    ->orderBy('created_at','desc');
+        //通过followings方法取出所有关注用户的信息，再借助pluck方法将id进行分离并赋值给user_id;pluck采摘
+        $user_ids = $this->followings->pluck('id')->toArray();
+
+        //将当前用户的id加入user_ids;
+        array_push($user_ids,$this->id);
+
+        //使用laravel提供的查询构造器whereIn方法取出所有用户的微博动态并进行倒序排序
+        return Status::whereIn('user_id',$user_ids)
+                        ->with('user')//这里使用了eloquent关联的预加载方法with方法，预加载避免了n+1查找问题，提高了查询效率
+                        ->orderBy('created_at','desc');
 
     }
 
